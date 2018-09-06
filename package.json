@@ -1,0 +1,7 @@
+{
+  "name": "aws-rest-with-dynamodb-sp500",
+  "version": "1.0.0",
+  "description": "Serverless CRUD service exposing a REST HTTP interface",
+  "author": "Alexey Vasin",
+  "license": "MIT"
+}

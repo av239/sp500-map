@@ -58,54 +58,22 @@ Serverless: Removing old service versions...
 
 You can create, retrieve, update, or delete todos with the following commands:
 
-### Create a Todo
+### List all tickers with coordinates
 
 ```bash
-curl -X POST https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos --data '{ "text": "Learn Serverless" }'
-```
-
-No output
-
-### List all Todos
-
-```bash
-curl https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos
+curl https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/stock
 ```
 
 Example output:
 ```bash
-[{"text":"Deploy my first service","id":"ac90fe80-aa83-11e6-9ede-afdfa051af86","checked":true,"updatedAt":1479139961304},{"text":"Learn Serverless","id":"20679390-aa85-11e6-9ede-afdfa051af86","createdAt":1479139943241,"checked":false,"updatedAt":1479139943241}]%
+[{"createdAt": 1536202865815, "date": "2018-09-06", "id": "AMP", "feature": "{\"type\": \"Feature\", \"geometry\": {\"type\": \"Point\", \"coordinates\": [44.977753, -93.2650108]}, \"properties\": {\"mag\": 20417045580, \"companyName\": \"Ameriprise Financial Inc.\", \"address\": \"Minneapolis, MN, USA\"}}", "updatedAt": 1536202865815}, {"createdAt": 1536202953849, "date": "2018-09-06", "id": "ETR", "feature": "{\"type\": \"Feature\", \"geometry\": {\"type\": \"Point\", \"coordinates\": [29.95106579999999, -90.0715323]}, \"properties\": {\"mag\": 15365443519, \"companyName\": \"Entergy Corporation\", \"address\": \"New Orleans, LA, USA\"}}", "updatedAt": 1536202953849}, {"createdAt": 1536202842168, "date": "2018-09-06", "id": "ABBV", "feature": "{\"type\": \"Feature\", \"geometry\": {\"type\": \"Point\", \"coordinates\": [42.325578, -87.8411818]}, \"properties\": {\"mag\": 144143618123, \"companyName\": \"AbbVie Inc.\", \"address\": \"North Chicago, IL, USA\"}}", "updatedAt": 1536202842168}, {"createdAt": 1536203091021, "date": "2018-09-06", "id": "PFG", "feature": "{\"type\": \"Feature\", \"geometry\": {\"type\": \"Point\", \"coordinates\": [41.5868353, -93.6249593]}, \"properties\": {\"mag\": 15945930616, \"companyName\": \"Principal Financial Group Inc\", \"address\": \"Des Moines, IA, USA\"}}", "updatedAt": 1536203091021}, {"createdAt": 1536203072558, "date": "2018-09-06", "id": "NVDA", "feature": "{\"type\": \"Feature\", \"geometry\": {\"type\": \"Point\", \"coordinates\": [37.3541079, -121.9552356]}, \"properties\": {\"mag\": 169279360000, \"companyName\": \"NVIDIA Corporation\", \"address\": \"Santa Clara, CA, USA\"}}", "updatedAt": 1536203072558}, {"createdAt": 1536202972616, "date": "2018-09-06", "id": "FLR", "feature": "{\"type\": \"Feature\", \"geometry\": {\"type\": \"Point\", \"coordinates\": [32.8140177, -96.9488945]}, \"properties\": {\"mag\": 8004031829, \"companyName\": \"Fluor Corporation\", \"address\": \"Irving, TX, USA\"}}", "updatedAt": 1536202972616}, {"createdAt": 1536202978989, "date": "2018-09-06", "id": "IT", "feature": "{\"type\": \"Feature\", \"geometry\": {\"type\": \"Point\", \"coordinates\": [41.0534302, -73.5387341]}, \"properties\": {\"mag\": 13939662648, \"companyName\": \"Gartner Inc.\", \"address\": \"Stamford, CT, USA\"}}", "updatedAt": 1536202978989}, {"createdAt": 1536203036807, "date": "2018-09-06", "id": "MRO", "feature": "{...]%
 ```
 
-### Get one Todo
+### Refresh all 500 tickers with current price info
 
 ```bash
 # Replace the <id> part with a real id from your todos table
-curl https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos/<id>
-```
-
-Example Result:
-```bash
-{"text":"Learn Serverless","id":"ee6490d0-aa81-11e6-9ede-afdfa051af86","createdAt":1479138570824,"checked":false,"updatedAt":1479138570824}%
-```
-
-### Update a Todo
-
-```bash
-# Replace the <id> part with a real id from your todos table
-curl -X PUT https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos/<id> --data '{ "text": "Learn Serverless", "checked": true }'
-```
-
-Example Result:
-```bash
-{"text":"Learn Serverless","id":"ee6490d0-aa81-11e6-9ede-afdfa051af86","createdAt":1479138570824,"checked":true,"updatedAt":1479138570824}%
-```
-
-### Delete a Todo
-
-```bash
-# Replace the <id> part with a real id from your todos table
-curl -X DELETE https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/todos/<id>
+curl -X POST https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/stock/load<id>
 ```
 
 No output
